@@ -1,0 +1,8 @@
+Summary of the Complete Step-by-Step Flow to connect to database:
+
+1. Install packages: drizzle-orm, @neondatabase/serverless, drizzle-kit.
+2. Configure CLI (drizzle.config.ts): Tells Drizzle where your schema and .env database URL are.
+3. Define Schema (src/db/schema.ts): Define your tables, columns, relations, and inferred types (User, NewUser).
+4. Apply to Database: Run npm run db:push to apply your schema to Neon.
+5. Runtime Connection (src/db/index.ts): Connect via neon(DATABASE_URL) and initialize Drizzle with { schema }.
+6. Use in Services (users.service.ts): Import db and users to execute queries (db.query.users.findFirst(...), db.insert(...)).
